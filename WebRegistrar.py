@@ -52,12 +52,16 @@ def alert_on_error(e: Exception):
 #==================================================
 
 def main():
+    
+    #Get user-inputted company number for validation
     edit_url = f"https://store.dacotahpaper.com/user/{account_id}/edit"
     browser.get(edit_url)
     browser.find_element(By.ID, "edit-name").send_keys(secrets["USERNAME"])
     browser.find_element(By.ID, "edit-pass").send_keys(secrets["PASSWORD"])
     browser.find_element(By.ID, "edit-submit").click()
     company_input = browser.find_element(By.ID, "edit-field-customer-number-und-0-value").get_attribute('value')
+    
+    #Parse company_input and create a list of companies to attach to the account
 
 if __name__ == "__main__":
     try:
